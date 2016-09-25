@@ -1,4 +1,10 @@
 language: python
 python:
-  - "3.5"
-install: "pip install -r requirements.txt"
+- '2.7'
+deploy:
+  provider: gae
+  keyfile: petition-16af568bdafa.json
+  project: petition-144421
+before_install:
+- openssl aes-256-cbc -K $encrypted_5cbbea8aa25b_key -iv $encrypted_5cbbea8aa25b_iv
+  -in petition-16af568bdafa.json.enc -out petition-16af568bdafa.json -d
